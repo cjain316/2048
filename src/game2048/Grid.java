@@ -25,7 +25,6 @@ public class Grid {
 	public int getLength()      {return grid.length;}
 	public int getHeight()      {return grid[0].length;}
 	public int getValue(int x, int y)      {return grid[x][y];}
-	
 	public void setValue(int x, int y, int val)   {grid[x][y] = val;}
 	
 	public void paint(Graphics g) {
@@ -46,9 +45,9 @@ public class Grid {
 				if (grid[i][a]==1024) {g.setColor(new Color(131, 23, 255));}
 				if (grid[i][a]==2048) {g.setColor(new Color(23, 222, 232));}
 				//
-				g.fillRect(i*96+172, a*96+160, 72, 72);;
+				g.fillRect(i*96+208, a*96+208, 72, 72);;
 				g.setColor(new Color(255,255,255));
-				g.drawString(""+grid[i][a], i*96+200, a*96+200);
+				g.drawString(""+grid[i][a], i*96+235, a*96+250);
 			}
 		}
 	}
@@ -150,11 +149,16 @@ public class Grid {
 	public void generateNew() {
 		boolean used = false;
 		int a,b;
+		int counter = 0;
 		while (!used) {
+			counter++;
 			a = (int)(Math.random()*4);
 			b = (int)(Math.random()*4);
 			if (grid[a][b] == 0) {
 				grid[a][b] = 2;
+				used = true;
+			}
+			if (counter == 1000) {
 				used = true;
 			}
 		}

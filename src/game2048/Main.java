@@ -27,6 +27,8 @@ public class Main extends JPanel implements KeyListener, ActionListener {
 	
 	public void paint(Graphics g) {
         super.paintComponent(g);
+        g.setColor(new Color(222, 197, 113));
+        g.fillRect(0, 0, 1000, 1000);
         Graphics2D g2 = (Graphics2D) g;
         grid.paint(g);
 	}
@@ -45,22 +47,18 @@ public class Main extends JPanel implements KeyListener, ActionListener {
 		if (arg0.getExtendedKeyCode() == 65) {
 			grid.shiftLeft();
 			update();
-			grid.shiftLeft();
 		}
 		if (arg0.getExtendedKeyCode() == 87) {
 			grid.shiftUp();
 			update();
-			grid.shiftUp();
 		}
 		if (arg0.getExtendedKeyCode() == 83) {
 			grid.shiftDown();
 			update();
-			grid.shiftDown();
 		}
 		if (arg0.getExtendedKeyCode() == 68) {
 			grid.shiftRight();
 			update();
-			grid.shiftRight();
 		}
 		
 	}
